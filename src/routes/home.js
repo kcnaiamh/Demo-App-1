@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
                 <title>Home</title>
             </head>
             <body>
-                <a href="http://${process.env.HOST_IP}:3000/users">User List</a>
+                <a href="http://${process.env.HOST_IP}:3000/users">User List</a><br>
                 <a href="http://${process.env.HOST_IP}:3000/healthcheck">Health Check</a>
             </body>
         </html>
