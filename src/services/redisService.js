@@ -27,7 +27,7 @@ async function initializeRedis() {
 
 		// Fetch initial health statuses
 		healthStatus.mysql = await redisClient.get("health:mysql");
-		healthStatus.vault = await redisClient.get("health:redis");
+		healthStatus.vault = await redisClient.get("health:vault");
 
 		// Create a duplicate client for subscribing to avoid interference with normal commands.
 		const subscriber = redisClient.duplicate();
@@ -42,8 +42,8 @@ async function initializeRedis() {
 			healthStatus.mysql = message;
 		});
 
-		// Subscribe to Vault (redis health) channel
-		await subscriber.subscribe("health:redis", (message) => {
+		// Subscribe to Vault health channel
+		await subscriber.subscribe("health:vault", (message) => {
 			console.log(`Received Vault health update: ${message}`);
 			healthStatus.vault = message;
 		});
