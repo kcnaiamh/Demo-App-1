@@ -9,6 +9,7 @@ const usersRoute = require('./routes/users');
 const healthcheckRoute = require('./routes/healthcheck');
 
 // Use routes
+app.use('/', homeRoute)
 app.use('/users', usersRoute);
 app.use('/healthcheck', healthcheckRoute);
 
