@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
 	try {
 		connection = await connectToDatabase();
 		const [users] = await connection.execute(
-			"SELECT username, email FROM my_database.users"
+			`SELECT username, email FROM ${DB_NAME}.users`
 		);
 		res.json({ success: true, data: users });
 	} catch (error) {
