@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { connectToDatabase } = require("../services/dbService");
 
+const DB_NAME = process.env.DB_NAME;
+
 router.get("/", async (req, res) => {
 	let connection;
 	try {
